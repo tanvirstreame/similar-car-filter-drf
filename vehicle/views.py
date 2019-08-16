@@ -11,4 +11,4 @@ class VehicleList(generics.ListCreateAPIView):
 
 class SimilerVehilceList(generics.ListCreateAPIView):
   serializer_class = VehicleSerializer
-  queryset = Vehicle.objects.filter(price__lte=20000, odometer_reading__lte=200).order_by("price", "odometer_reading")
+  queryset = Vehicle.objects.filter(price__lte=20000, odometer_reading__lte=200).order_by("model", "-price", "-odometer_reading")
